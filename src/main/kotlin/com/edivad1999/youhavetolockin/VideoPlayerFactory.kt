@@ -1,10 +1,7 @@
 package com.edivad1999.youhavetolockin
 
-import ai.grazie.utils.mpp.time.Time
-import com.google.common.io.Files
 import kotlinx.coroutines.*
 import java.awt.BorderLayout
-import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
 import javax.media.Manager
@@ -26,7 +23,6 @@ object VideoPlayerFactory : CoroutineScope {
             add(player.visualComponent, BorderLayout.CENTER)
             player.start()
             launch(coroutineContext) {
-                println("pippo ${player.duration.seconds.toLong()}")
                 delay(player.duration.seconds.toLong() * 1000)
                 player.stop()
                 onEnd()
